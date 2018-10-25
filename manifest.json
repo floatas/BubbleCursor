@@ -1,0 +1,35 @@
+{
+    "name": "Bubble cursor",
+    "version": "1.0",
+    "description": "Bubble cursor",
+    "manifest_version": 2,
+    "permissions": [
+        "storage",
+        "declarativeContent",
+        "activeTab",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "lib/bubble.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": true,
+            "match_about_blank": true
+        }
+    ]
+}
