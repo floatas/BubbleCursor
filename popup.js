@@ -1,15 +1,25 @@
-let changeColor = document.getElementById('changeColor');
+let toggleBubbleBtn = document.getElementById('toggleBubbleBtn');
+let isEnabled = true;
 
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
+chrome.storage.sync.get(['bubbleCursor'], function (data) {
+  isEnabled = data.bubbleCursor.enabled;
+  if (isEnabled === true) {
+    toggleBubbleBtn.value = 'Disable bubble cursor';
+  } else {
+    toggleBubbleBtn.value = 'Enable bubble cursor';
+  }
 });
 
-changeColor.onclick = function(element) {
-    let color = element.target.value;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.executeScript(
-          tabs[0].id,
-          {code: 'document.body.style.backgroundColor = "' + color + '";'});
-    });
-  };
+let toggleBubbleCursor = function () {
+  isEnabled = !isEnabled;
+  chrome.storage.sync.set({ bubbleCursor: {enabled : isEnabled} }, function () {
+    if (isEnabled === true) {
+      toggleBubbleBtn.value = 'Disable bubble cursor';
+    } else {
+      toggleBubbleBtn.value = 'Enable bubble cursor';
+    }
+  });
+}
+
+toggleBubbleBtn.addEventListener('click', function () { toggleBubbleCursor(); });
+
