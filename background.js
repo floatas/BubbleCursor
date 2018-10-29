@@ -1,9 +1,8 @@
 chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.sync.set({ color: '#3aa757' }, function () {
-        console.log("color is green!");
+    chrome.storage.sync.set({ showCircle: { key: 'a', keyCode: 97 } }, function () {
     });
 
-    chrome.tabs.create({url: "options.html"}, function (tab) {});
+    chrome.tabs.create({ url: "options.html" }, function (tab) { });
 
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
         chrome.declarativeContent.onPageChanged.addRules([{
