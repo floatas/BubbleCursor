@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ persistent: { persistVisual: true } }, function () {
     });
 
-    chrome.storage.sync.set({ bubbleCursor: {enabled : false} }, function () {
+    chrome.storage.sync.set({ bubbleCursor: {enabled : true} }, function () {
     });
 
     chrome.tabs.create({ url: "options.html" }, function (tab) { });

@@ -25,6 +25,7 @@
                 "<all_urls>"
             ],
             "js": [
+                "lib/vimium.js",
                 "lib/bubble.js"
             ],
             "run_at": "document_end",
