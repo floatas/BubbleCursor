@@ -2,6 +2,9 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ showCircle: { key: 'a', keyCode: 97 } }, function () {
     });
 
+    chrome.storage.sync.set({ disableBubble: { key: 'b', keyCode: 98 } }, function () {
+    });
+
     chrome.storage.sync.set({ persistent: { persistVisual: true } }, function () {
     });
 
