@@ -1,7 +1,7 @@
 {
     "name": "Bubble cursor",
     "version": "1.0",
-    "description": "Bubble cursor",
+    "description": "The bubble cursor dynamically resizes its size to make sure that one target is always selectable.",
     "manifest_version": 2,
     "permissions": [
         "storage",
