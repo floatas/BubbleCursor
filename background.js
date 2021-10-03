@@ -5,6 +5,9 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ disableBubble: { key: 's', keyCode: 115 } }, function () {
     });
 
+    chrome.storage.sync.set({ toggleBubble: { key: 'q', keyCode: 113 } }, function () {
+    });
+
     chrome.storage.sync.set({ persistent: { persistVisual: true } }, function () {
     });
 
